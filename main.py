@@ -53,4 +53,30 @@ def main():
     # Create the level list
     levelList = []
     levelList.append(level.Level_01(player, True))
-    
+
+    # Set the current level
+    currentLevelNo = 0
+    currentLevel = levelList[currentLevelNo]
+
+    player.level = currentLevel
+
+    currentLevel.player = player
+
+    player.rect.x = 150
+    player.rect.y = 400
+    activeSpriteList.add(player)
+
+    # Variables to control the player
+
+    run = 0
+    jump = False
+    fullscreen = 0
+
+    # Loop until the user clicks the close button
+    gameExit = False
+
+    # ---------- Main Program Loop ----------
+    while not gameExit:
+        for event in pygame.event.get(): # User did something
+            if event.type == QUIT: # If user clicked close
+                gameExit = True
