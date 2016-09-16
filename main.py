@@ -32,3 +32,10 @@ def main():
     gameDisplay = pygame.display.set_mode(constants.SIZE)
 
     # Used to manage how fast the screen updates
+
+    clock = pygame.time.Clock()
+
+    # Set the caption and icon
+    pygame.display.set_caption("Platforming Engine")
+    icon = spritesheet.SpriteSheet("resources.icon.ico").get_image(0,0,32,32)
+    pygame.display.set_icon(icon)
