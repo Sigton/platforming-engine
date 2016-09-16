@@ -80,3 +80,79 @@ def main():
         for event in pygame.event.get(): # User did something
             if event.type == QUIT: # If user clicked close
                 gameExit = True
+
+            elif event.type == KEYDOWN:
+                if event.key == constants.K_ESCAPE:
+                    gameExit == True
+
+                if event.key == K_LEFT or K_a:
+                    run = -1
+                elif event.key == K_RIGHT or K_d:
+                    run = 1
+                elif event.key == K_UP or event.key == K_w:
+                    jump = True
+
+                elif event.key == constants.K_FULLSCREEN:
+                    fullscreen = 1 - fullscreen
+
+                    if fullscreen == 1:
+                        gameDisplay = pygame.display.set_mode((constants.SIZE), FULLSCREEN)
+                    else:
+                        gameDisplay = pygame.display.set_mode((constants.SIZE))
+
+            elif event.type == KEYUP:
+                if (event.key == K_LEFT or event.key == K_a) and player.xv < 0:
+                    run = 0
+                elif (event.key == K_RIGHT or event.key == K_d) and player.xv > 0:
+                    run = 0
+                elif event.key == K_UP or event.key == K_w:
+                    jump = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            
