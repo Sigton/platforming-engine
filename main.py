@@ -39,3 +39,18 @@ def main():
     pygame.display.set_caption("Platforming Engine")
     icon = spritesheet.SpriteSheet("resources.icon.ico").get_image(0,0,32,32)
     pygame.display.set_icon(icon)
+
+    ''' RUN MENU HERE '''
+
+    # Create the player
+
+    global player, activeSpriteList
+
+    player = p.Player()
+
+    activeSpriteList = pygame.sprite.Group()
+
+    # Create the level list
+    levelList = []
+    levelList.append(level.Level_01(player, True))
+    
