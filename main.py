@@ -151,53 +151,27 @@ def main():
             player.rect.x = 200
             currentLevel.shift_world(-diff)
 
-        
+        '''
+        All code to draw goes below this comment
+        '''
 
+        currentLevel.draw(gameDisplay)
+        activeSpriteList.draw(gameDisplay)
+        currentLevel.entityList.draw(gameDisplay)
 
+        '''
+        All code to draw goes above this comment
+        '''
 
+        # Limit to 60 fps
+        clock.tick(60)
 
+        # Then finally update the display
+        pygame.display.flip()
 
+    # and as not to leave the program hanging...
+    pygame.quit()
+    sys.exit()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-            
+if __name__ == '__main__':
+    main()
