@@ -108,6 +108,51 @@ def main():
                 elif event.key == K_UP or event.key == K_w:
                     jump = False
 
+        # Level Progression
+        if player.touching_checkpoint():
+            currentLevel.reset_world()
+            player.reset()
+
+            currentLevelNo += 1
+            currentLevel = levelList[currentLevelNo]
+
+            player.level = currentLevel
+            currentLevel.player = player
+
+        # Running and jumping
+
+        if player.knockback > 0:
+            player.knockback -= 1
+            run = 0
+        else:
+            if abs(run) > 0:
+                if run == 1:
+                    player.go_right(constants.PLAYER_SPEED)
+                elif run == -1:
+                    player.go_left(constants.PLAYER_SPEED)
+
+        if jump:
+            player.jump(constants.PLAYER_JUMP_HEIGHT)
+
+        # Update entities
+
+        activeSpriteList.update()
+        currentLevel.update()
+
+        # If the player gets near the right side of the world shift the world left (-x)
+        if player.rect.x >= 500:
+            diff = player.rect.x - 500
+            player.rect.x = 500
+            currentLevel.shift_world(-diff)
+
+        # If the player gets near the left side of the world shift the world right (x)
+        if player.rect.x <= 200:
+            diff = player.rect.x - 200
+            player.rect.x = 200
+            currentLevel.shift_world(-diff)
+
+        
+
 
 
 
