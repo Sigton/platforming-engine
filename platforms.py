@@ -79,42 +79,10 @@ class AnimatedPlatform(pygame.sprite.Sprite):
         self.tick = 0
         self.costume = 0
 
+    def update(self):
 
+        self.tick += 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if self.tick % 10 == 0:
+            self.costume = (self.costume + 1) % len(self.images)
+            self.image = self.images[costume]
