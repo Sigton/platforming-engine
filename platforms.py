@@ -27,3 +27,22 @@ TILE_NAME = (
 '''
 
 platforms = () # Tuple of all defined platforms
+
+class Platform(pygame.sprite.Sprite):
+    ''' A tile displayed on screen '''
+
+    def __init__(self, spriteSheetData):
+        ''' Constructor '''
+
+        # Call the parents constructor
+        pygame.sprite.Sprite.__init__(self)
+
+        spriteSheet = spritesheet.SpriteSheet("resouces/terrain.png")
+
+        # Take the image from the spritesheet
+        self.image = spriteSheet.get_image(spriteSheetData[0],
+                                           spriteSheetData[1],
+                                           spriteSheetData[2],
+                                           spriteSheetData[3])
+
+        self.rect = self.image.get_rect()
